@@ -2,6 +2,7 @@ package calculatrice.claculatriceREST.controller;
 
 import calculatrice.claculatriceREST.model.CalculatriceResult;
 import calculatrice.claculatriceREST.service.CalculatriceService;
+import calculatrice.claculatriceREST.service.CalculatriceServiceImpl;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -11,33 +12,33 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/calculator")
 public class CalculatriceController {
 
-    private CalculatriceService calculatriceService;
+    private final CalculatriceService service;
 
-    public CalculatriceController(CalculatriceService calculatriceService) {
-        this.calculatriceService = calculatriceService;
+    public CalculatriceController(CalculatriceServiceImpl calculatriceService) {
+        this.service = calculatriceService;
     }
 
     @GetMapping("/add")
     public CalculatriceResult add(@RequestParam double valeurX, @RequestParam double valeurY){
 
-        return calculatriceService.add(valeurX, valeurY);
+        return service.add(valeurX, valeurY);
     }
     @GetMapping("/soustract")
     public CalculatriceResult soustract(@RequestParam double valeurX, @RequestParam double valeurY){
 
-        return calculatriceService.sousract(valeurX, valeurY);
+        return service.soustract(valeurX, valeurY);
     }
 
     @GetMapping("/multiply")
     public CalculatriceResult multiply(@RequestParam double valeurX, @RequestParam double valeurY){
 
-        return calculatriceService.multiply(valeurX, valeurY);
+        return service.multiply(valeurX, valeurY);
     }
 
     @GetMapping("/divide")
     public CalculatriceResult divide(@RequestParam double valeurX, @RequestParam double valeurY){
 
-        return calculatriceService.divide(valeurX, valeurY);
+        return service.divide(valeurX, valeurY);
     }
 
 }
