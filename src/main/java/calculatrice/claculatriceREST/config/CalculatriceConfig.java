@@ -9,10 +9,8 @@ import org.springframework.stereotype.Component;
 @Component
 @ConfigurationProperties(prefix = "calculatrice")
 public class CalculatriceConfig {
-
     private String message;
     private String version;
     private String nom;
     private String auteur;
-
 }

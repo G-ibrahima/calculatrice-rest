@@ -3,10 +3,8 @@ package calculatrice.claculatriceREST.controller;
 import calculatrice.claculatriceREST.model.CalculatriceResult;
 import calculatrice.claculatriceREST.service.CalculatriceService;
 import calculatrice.claculatriceREST.service.CalculatriceServiceImpl;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/calculator")
@@ -36,6 +34,7 @@ public class CalculatriceController {
     }
 
     @GetMapping("/divide")
+    @ResponseStatus(HttpStatus.CREATED)
     public CalculatriceResult divide(@RequestParam double valeurX, @RequestParam double valeurY){
 
         return service.divide(valeurX, valeurY);
