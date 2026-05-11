@@ -2,16 +2,12 @@ package calculatrice.claculatriceREST.service;
 
 import calculatrice.claculatriceREST.exception.CalculatriceException;
 import calculatrice.claculatriceREST.model.CalculatriceResult;
-import org.springframework.context.annotation.Primary;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-
-@Primary
-@Service
-public class CalculatriceServiceImpl implements CalculatriceService {
-
-
-
+@Qualifier
+@Service("scientifique")
+public class CalculatriceServiceScientifique implements CalculatriceService {
     @Override
     public CalculatriceResult add(double valeurX, double valeurY) {
         double resultat = Math.round((valeurX + valeurY) * 100.0) / 100.0;
